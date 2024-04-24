@@ -22,11 +22,11 @@ public class CalendrierAnnuel {
 	}
 	
 	public boolean estLibre(int jour, int mois) {
-		return this.mois[mois+1].estLibre(jour); 
+		return this.mois[mois-1].estLibre(jour); 
 	}
 	
 	public boolean reserver(int jour, int mois) {
-		return (this.mois[mois-1].reserver(jour-1));
+		return (this.mois[mois-1].reserver(jour));
 	}
 	
 	public class Mois {
@@ -42,10 +42,10 @@ public class CalendrierAnnuel {
 		}
 		
 		public boolean estLibre(int jour) {
+			System.out.println((this.jours[jour-1]));
 			if (this.jours[jour-1]) return false; 
-			else return true; 
-			
-			
+			return true; 
+		 
 		}
 		
 		public boolean reserver(int jour) {
